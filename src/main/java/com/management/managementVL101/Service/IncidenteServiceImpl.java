@@ -1,6 +1,8 @@
 package com.management.managementVL101.Service;
 import com.management.managementVL101.Model.Incidente;
+import com.management.managementVL101.Model.Usuario;
 import com.management.managementVL101.Repository.IncidenteRepository;
+import com.management.managementVL101.Repository.UsuarioRepository;
 
 import java.util.List;
 
@@ -13,6 +15,9 @@ public class IncidenteServiceImpl implements IncidenteService {
     @Autowired
     private IncidenteRepository incidenteRepository;
 
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
     @Override
     public List<Incidente> getAllIncidencias() {
         return incidenteRepository.findAll();
@@ -24,9 +29,19 @@ public class IncidenteServiceImpl implements IncidenteService {
                 .orElseThrow(() -> new RuntimeException("Incidencia no encontrada con id: " + id));
     }
 
-    @Override
-    public Incidente createIncidencia(Incidente incidencia) {
-        return incidenteRepository.save(incidencia);
+    public Incidente crearIncidencia(Long idUsuario, Incidente incidencia) {
+    Usuario usuario = usuarioRepository.findById(idUsuario)
+        .orElseThrow(() -> new RuntimeException("Usuario no encontrado con id: " + idUsuario));
+    incidencia.setUsuarios(usuario);
+
+    if (incidencia.getDescripcion() == null) {
+        incidencia.setDescripcion("Descripción genérica");
+    }
+    if (incidencia.getStatus() == null) {
+        incidencia.setStatus("Abierta");
+    }
+
+    return incidenteRepository.save(incidencia);
     }
 
     @Override

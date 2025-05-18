@@ -9,7 +9,7 @@ public interface IncidenteService {
     // Métodos para manejar las incidencias
     List<Incidente> getAllIncidencias();
     Incidente getIncidenciaById(Long id);
-    Incidente createIncidencia(Incidente incidencia);
+    Incidente crearIncidencia(Long idUsuario, Incidente incidencia);
     Incidente modificarIncidencia(Long id, Incidente incidencia);
 
 } 

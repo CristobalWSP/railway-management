@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PostMapping;
+
 
 
 
@@ -38,5 +40,11 @@ public class IncidenteController {
         return ResponseEntity.ok(actualizado);
     }
 
+    @PostMapping("/{id}/gnIncidente")
+    public ResponseEntity<Incidente> crearIncidencia(@PathVariable("id") Long idUsuario, @RequestBody Incidente incidente) {
+        Incidente nuevaIncidencia = incidenteService.crearIncidencia(idUsuario, incidente);
+        return new ResponseEntity<>(nuevaIncidencia, HttpStatus.CREATED);
+    }
+    
 
 }

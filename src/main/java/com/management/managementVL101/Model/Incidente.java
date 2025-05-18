@@ -2,6 +2,8 @@ package com.management.managementVL101.Model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -17,6 +19,7 @@ import lombok.Data;
 public class Incidente {
     @Id
     @Column(name = "ID_INCIDENCIAS")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idIncidencias;
 
     @ManyToOne
@@ -28,7 +31,6 @@ public class Incidente {
 
     @Column(name = "STATUS")
     private String status;
-
 
 
 }
