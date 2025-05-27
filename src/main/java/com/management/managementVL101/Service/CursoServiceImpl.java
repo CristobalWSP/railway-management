@@ -17,32 +17,4 @@ public class CursoServiceImpl implements CursoService {
     public List<Curso> getAllCursos() {
         return cursoRepository.findAll();
     }
-
-    @Override
-    public Curso getCursoById(Long id) {
-        return cursoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Curso no encontrado con id: " + id));
-    }
-
-    @Override
-    public Curso createCurso(Curso curso) {
-        return cursoRepository.save(curso);
-    }
-
-    @Override
-    public Curso updateCurso(Long id, Curso curso) {
-        return null;
-    }
-
-    @Override
-    public Curso modificarCurso(Long id, Curso cursoModificado) {
-        Curso cursoExistente = getCursoById(id);
-        cursoExistente.setCursoNombre(cursoModificado.getCursoNombre());
-        cursoExistente.setDescripcion(cursoModificado.getDescripcion());
-        cursoExistente.setCategoria(cursoModificado.getCategoria());
-        cursoExistente.setPrecio(cursoModificado.getPrecio());
-        cursoExistente.setEstudianteCapacidad(cursoModificado.getEstudianteCapacidad());
-        return cursoRepository.save(cursoExistente);
-    }
-    
 }

@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PathVariable;
+
 
 
 
@@ -25,25 +23,5 @@ public class CursoController {
     public ResponseEntity<List<Curso>> getAllCursos() {
         return new ResponseEntity<>(cursoService.getAllCursos(), HttpStatus.OK);
     }
-    
-    @GetMapping("/{id}")
-    public ResponseEntity<Curso> getCursoById(@PathVariable Long id) {
-        return new ResponseEntity<>(cursoService.getCursoById(id), HttpStatus.OK);
-    }
 
-    @PutMapping("/{id}/modificar")
-    public ResponseEntity<Curso> modificarCurso(@PathVariable Long id, @RequestBody Curso curso) {
-        Curso actualizado = cursoService.modificarCurso(id, curso);
-        return ResponseEntity.ok(actualizado);
-    }
-    
-
-    @PostMapping
-    public ResponseEntity<Curso> createCurso(@RequestBody Curso curso) {
-        return new ResponseEntity<>(cursoService.createCurso(curso), HttpStatus.CREATED);
-    }
-
-    
-
-    
 }

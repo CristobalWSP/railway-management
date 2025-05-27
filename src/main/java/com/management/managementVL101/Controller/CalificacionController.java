@@ -39,7 +39,6 @@ public class CalificacionController {
             Calificacion calificacion = new Calificacion();
             calificacion.setPuntuacion(request.getPuntuacion());
             calificacion.setResena(request.getResena());
-            // Puedes setear la fecha aquí si lo deseas
 
             Calificacion nuevaCalificacion = calificacionService.createCalificacion(
                 request.getIdUsuario(),

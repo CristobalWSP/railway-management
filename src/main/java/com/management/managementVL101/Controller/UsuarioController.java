@@ -19,22 +19,4 @@ public class UsuarioController {
     public ResponseEntity<List<Usuario>> getAllUsuarios() {
         return new ResponseEntity<>(usuarioService.getAllUsuarios(), HttpStatus.OK);
     }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Usuario> getUsuarioById(@PathVariable Long id) {
-        return new ResponseEntity<>(usuarioService.getUsuarioById(id), HttpStatus.OK);
-    }
-
-    @PostMapping
-    public ResponseEntity<Usuario> createUsuario(@RequestBody Usuario usuario) {
-        return new ResponseEntity<>(usuarioService.createUsuario(usuario), HttpStatus.CREATED);
-    }
-
-    @PutMapping("/{id}/modificar")
-    public ResponseEntity<Usuario> modificarUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
-        Usuario actualizado = usuarioService.modificarUsuario(id, usuario);
-        return ResponseEntity.ok(actualizado);
-    }
-
-
 }

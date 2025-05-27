@@ -6,7 +6,6 @@ public class CalificacionRequest {
     private int puntuacion;
     private String resena;
 
-    // Getters y setters
     public Long getIdUsuario() { return idUsuario; }
     public void setIdUsuario(Long idUsuario) { this.idUsuario = idUsuario; }
 
