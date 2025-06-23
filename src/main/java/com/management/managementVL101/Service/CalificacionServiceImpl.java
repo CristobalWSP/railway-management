@@ -58,6 +58,12 @@ public class CalificacionServiceImpl implements CalificacionService{
     return calificacionRepository.save(calificacionExistente);
     }
 
+    @Override
+    public void deleteCalificacion(Long id) {
+        Calificacion calificacion = getCalificacionById(id);
+        calificacionRepository.delete(calificacion);
+    }
+
 
 }
 

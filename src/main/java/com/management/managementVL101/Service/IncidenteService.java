@@ -11,6 +11,7 @@ public interface IncidenteService {
     Incidente getIncidenciaById(Long id);
     Incidente crearIncidencia(Long idUsuario, Incidente incidencia);
     Incidente modificarIncidencia(Long id, Incidente incidencia);
+    Incidente deleteIncidente(Long id);
 
 } 
     

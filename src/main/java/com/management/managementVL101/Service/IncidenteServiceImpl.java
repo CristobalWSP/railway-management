@@ -52,5 +52,12 @@ public class IncidenteServiceImpl implements IncidenteService {
         return incidenteRepository.save(incidenciaExistente);
     }
 
+    @Override
+    public Incidente deleteIncidente(Long id) {
+        Incidente incidente = getIncidenciaById(id);
+        incidenteRepository.delete(incidente);
+        return incidente;
+    }
+
 	
 }

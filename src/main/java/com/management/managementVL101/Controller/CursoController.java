@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 @RestController
-@RequestMapping("/api/cursos")
+@RequestMapping("/api/c")
 public class CursoController {
 
     @Autowired

@@ -10,7 +10,8 @@ public interface CalificacionService {
     Calificacion getCalificacionById(Long id);
     Calificacion createCalificacion(Long idUsuario, Long idCurso, Calificacion calificacion);
     Calificacion updateCalificacion(Long id, Calificacion calificacion);
-
+    
+    void deleteCalificacion(Long id);
     
 }
 
