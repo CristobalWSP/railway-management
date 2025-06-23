@@ -70,11 +70,6 @@
     <version>21.1.0.0</version>
 		</dependency>
 			
-		<dependency>
-    <groupId>com.oracle.database.jdbc</groupId>
-    <artifactId>ucp</artifactId>
-    <version>21.9.0.0</version>
-</dependency>
 <dependency>
     <groupId>com.oracle.database.security</groupId>
     <artifactId>oraclepki</artifactId>
@@ -113,6 +108,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.11.0</version>
 				<configuration>
 					<annotationProcessorPaths>
 						<path>

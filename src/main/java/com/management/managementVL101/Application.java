@@ -1,13 +1,23 @@
 package com.management.managementVL101;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan(basePackages = "com.management.managementVL101")
 public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
+        // ⚠️ Configura el wallet ANTES de que Spring arranque
+        Path walletPath = Paths.get("src/main/resources/wallet");
+        System.setProperty("oracle.net.tns_admin", walletPath.toAbsolutePath().toString());
+        System.out.println("[MAIN] TNS_ADMIN configurado en: " + walletPath.toAbsolutePath());
+
+        SpringApplication.run(Application.class, args);
+    }
 
 }
